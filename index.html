@@ -34,3 +34,24 @@
 <img src="landen3.jpeg" width="300">
 <img src="landen4.jpeg" width="300">
 <img src="landen5.jpeg" width="300">
+<script>
+function jumpscare() {
+  const img = document.createElement("img");
+  img.src = "landen3.jpeg"; // put your image name here
+  img.style.position = "fixed";
+  img.style.top = "0";
+  img.style.left = "0";
+  img.style.width = "100vw";
+  img.style.height = "100vh";
+  img.style.zIndex = "9999";
+
+  document.body.appendChild(img);
+
+  setTimeout(() => {
+    img.remove();
+  }, 2000); // disappears after 2 seconds
+}
+
+// every 60 seconds
+setInterval(jumpscare, 60000);
+</script>
