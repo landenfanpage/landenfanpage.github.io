@@ -10,6 +10,17 @@
       color: black;
       font-family: Arial, sans-serif;
       margin-top: 40px;
+      @keyframes shake {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(5px, -5px); }
+  50% { transform: translate(-5px, 5px); }
+  75% { transform: translate(5px, 5px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+.shake {
+  animation: shake 0.3s infinite;
+}
     }
 
     body {
@@ -36,22 +47,25 @@
 <img src="landen5.jpeg" width="300">
 <script>
 function jumpscare() {
+  // shake screen
+  document.body.classList.add("shake");
+
   const img = document.createElement("img");
-  img.src = "landen3.jpeg"; // put your image name here
+  img.src = "jumpscare.jpg";
   img.style.position = "fixed";
   img.style.top = "0";
   img.style.left = "0";
   img.style.width = "100vw";
   img.style.height = "100vh";
   img.style.zIndex = "9999";
-  
+
   document.body.appendChild(img);
 
   setTimeout(() => {
     img.remove();
-  }, 2000); // disappears after 2 seconds
+    document.body.classList.remove("shake");
+  }, 2000);
 }
 
-// every 60 seconds
 setInterval(jumpscare, 60000);
 </script>
